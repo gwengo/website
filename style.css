@@ -180,6 +180,13 @@ h1{font-size:34px;margin-bottom:14px}
 .card b{font:400 25px/1.1 var(--mono)}
 .card.big{grid-column:1/-1}
 .card.big b{font-size:34px}
+.card img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border:3px ridge var(--edge);margin:0 0 8px}
+.bio .strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bio .strip figure{margin:0 3px;min-width:0}
+@media(max-width:700px){.bio .strip{grid-template-columns:minmax(0,1fr)}}
+.bio .strip img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border:4px ridge var(--edge)}
+.bio .strip figcaption{font:400 16px var(--mono);color:var(--muted);text-align:right;margin-top:2px}
+.photo{display:block;order:0}.photo img{display:block;width:100%;height:auto;border:4px ridge var(--edge)}
 .card .eyebrow{margin:0}
 .card:hover{border-style:inset}
 .studio-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
@@ -253,7 +260,9 @@ main hr{display:none}
 .shelf{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}
 .shelf .entries{margin-bottom:0}
 .reading.win{margin-top:0}
-.bio .strip .placeholder{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;margin:0}
+.project.wide,.project.wide.flip{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto}
+.project.wide>.photo{grid-column:1;grid-row:2;margin:0 20px 16px}
+.project.wide .text{grid-column:1;grid-row:3;padding:0 22px}
 #statement p{max-width:68ch}
 .cv{display:grid;grid-template-columns:330px minmax(0,1fr);grid-template-rows:auto auto 1fr;grid-template-areas:"head exp" "prog exp" "edu exp";column-gap:18px;align-items:start}
 .c-head{grid-area:head}.c-prog{grid-area:prog}.c-exp{grid-area:exp}.c-edu{grid-area:edu}
