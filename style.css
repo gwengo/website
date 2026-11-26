@@ -263,6 +263,7 @@ main hr{display:none}
 .project .claim{max-width:none}
 .prints{grid-template-columns:repeat(3,minmax(0,1fr))}
 .shelf{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}
+.shelf #field-notes{order:-1;grid-column:1/-1}
 .shelf .entries{margin-bottom:0}
 .reading.win{margin-top:0}
 .project.wide,.project.wide.flip{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto}
