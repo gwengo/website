@@ -32,7 +32,7 @@
   .stk-layer{position:absolute;left:0;top:0;width:100%;height:0;z-index:900}
   .stk{position:absolute;translate:-50% -50%;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;image-rendering:pixelated}
   .stk.sel{outline:2px dashed var(--ink,#fff);outline-offset:2px}
-  .stk-ui{position:fixed;right:12px;bottom:12px;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:6px;font:18px VT323,'Courier New',monospace}
+  .stk-ui{position:fixed;left:0;right:0;top:0;z-index:1000;display:flex;flex-direction:column;align-items:flex-end;gap:6px;pointer-events:none;font:18px VT323,'Courier New',monospace}
   .stk-ui button{font:inherit;color:var(--btnink,#050420);background:var(--btn,#d8d2de);border:3px outset var(--btn,#fff);padding:3px 9px;cursor:pointer}
   .stk-ui button:active{border-style:inset}
   .stk-ui [hidden]{display:none!important}
@@ -41,7 +41,13 @@
   .stk-ui .stk-grid button{background:var(--panel,#050420);border:3px inset var(--edge,#b0aaff);padding:5px;aspect-ratio:1;touch-action:none}
   .stk-grid img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;image-rendering:pixelated}
   .stk-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;justify-content:flex-end}
-  .stk-ui p{margin:6px 0 0}`;
+  .stk-ui p{margin:6px 0 0}
+  .stk-ui>*{pointer-events:auto}
+  .stk-ui .stk-dock{align-self:stretch;flex-wrap:nowrap;margin:0;padding:5px 10px;background:var(--bar,#3430c8);border-bottom:4px ridge var(--edge,#b0aaff)}
+  .stk-ui>.stk-tray,.stk-ui>.stk-row:not(.stk-dock){margin:0 10px}
+  .stk-tray{max-height:calc(100vh - 110px);overflow:auto}
+  html{scroll-padding-top:60px}
+  body{padding-top:52px}`;
   document.head.append(css);
 
   const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; };
@@ -73,7 +79,7 @@
     if (focus) layer.children[items.indexOf(focus)]?.focus({preventScroll:true});
   }
   const innerW = () => document.documentElement.clientWidth;
-  function move(it, px, py) { it.x = clamp(px / innerW(), .04, .96); it.y = clamp(py, 20, Math.max(20, pageH() - 20)); }
+  function move(it, px, py) { it.x = clamp(px / innerW(), .04, .96); it.y = clamp(py, 76, Math.max(76, pageH() - 20)); }
   function select(it, n) {
     selected = it; layer.querySelectorAll('.sel').forEach(x => x.classList.remove('sel'));
     n?.classList.add('sel'); tools.hidden = false;
@@ -145,11 +151,11 @@
     try { localStorage.setItem('theme', t); } catch {}
   }
   document.head.append(skin);
-  const dock = el('div','stk-row'); dock.append(themeBtn, basket);
+  const dock = el('div','stk-row stk-dock'); dock.append(themeBtn, basket);
   let start = 'moon'; try { const s = localStorage.getItem('theme'); if (THEMES.includes(s)) start = s; } catch {}
   basket.classList.add('stk-open');
   setTheme(start);
-  ui.append(tools, tray, dock); document.body.append(layer, ui);
+  ui.append(dock, tools, tray); document.body.append(layer, ui);
   document.addEventListener('pointerdown', e => { if (!e.target.closest('.stk,.stk-ui')) { selected = null; render(); } });
   render();
 })();
