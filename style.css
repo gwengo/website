@@ -199,10 +199,11 @@ nav a.name,nav a.name:visited{color:#fff}
 .frame img{display:block;width:100%;height:auto;image-rendering:pixelated}
 .prints-link{grid-column:1/-1;justify-self:center;font:20px var(--mono);background:var(--btn);color:var(--btnink)!important;border:3px outset var(--btn);padding:2px 12px;margin:4px;text-decoration:none;text-align:center}
 .prints-link:active{border-style:inset}
-.prints{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:0 0 18px}
+.prints{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:20px;margin:0 6px 18px}
 .prints figure{margin:0;padding:8px;background:var(--panel);border:4px dotted var(--edge);outline:3px ridge var(--edge);outline-offset:3px}
 .prints .placeholder{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;margin:0}
 .prints img{display:block;width:100%;height:auto}
+.prints a{display:block}
 .prints figcaption{font:18px var(--mono);text-align:center;padding-top:6px}
 .back{text-align:center;font:20px var(--mono)}
 .elsewhere{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;margin:0 0 8px}
@@ -263,5 +264,6 @@ body{grid-template-columns:210px minmax(0,880px) 218px}
 .frames{grid-column:3;grid-row:1/span 3;align-self:start;display:flex;flex-direction:column;gap:22px;padding:0}
 .frame{margin:3px 2px}
 .frame img{width:192px}
+body:has(.prints) main,body:has(.prints) footer{grid-column:2/-1}
 }
 @media(max-width:560px){.cards{grid-template-columns:1fr}h1{font-size:28px}.home-line{font-size:28px}nav .links{flex-wrap:wrap}}
