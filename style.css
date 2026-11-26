@@ -195,6 +195,8 @@ h1{font-size:34px;margin-bottom:14px}
 .shots a{display:block}.shots img{display:block;width:100%;height:auto;border:3px ridge var(--edge)}
 .shots.stack{display:block;columns:1;column-gap:12px}.shots.stack a{break-inside:avoid;margin:0 0 12px}
 .credit{font:400 16px var(--mono);color:var(--muted);text-align:right;margin:0}
+#byod>.photo{width:100%;max-width:360px;align-self:center}
+@media(min-width:1000px){#byod>.photo{grid-column:2;grid-row:2;align-self:start;width:auto;margin:0 20px 0 0}#byod.flip>.photo{grid-column:1;width:auto;margin:0 0 0 20px}}
 @media(min-width:700px){.shots.two{grid-template-columns:1fr 1fr;align-items:start}.shots.three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}.shots.stack{columns:2}}
 .entries{padding-left:20px;margin:0 0 28px}
 .entries li{margin-bottom:8px}
