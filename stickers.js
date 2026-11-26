@@ -115,6 +115,7 @@
       start = null;
     };
     b.onpointerup = b.onpointercancel = end;
+    b.onlostpointercapture = () => { ghost?.remove(); ghost = null; start = null; };
     b.onclick = e => { if (e.detail === 0) add(k.id, innerW()/2, scrollY + innerHeight/3); }; // keyboard
     grid.append(b);
   });
