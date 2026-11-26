@@ -197,6 +197,14 @@ nav a.name,nav a.name:visited{color:#fff}
 .frame{display:block;padding:5px;background:var(--panel);border:4px dotted var(--edge);outline:3px ridge var(--edge);outline-offset:3px;cursor:pointer;margin:4px;min-width:0}
 .frame:focus-visible{outline:3px solid var(--accent)}
 .frame img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.prints-link{grid-column:1/-1;justify-self:center;font:20px var(--mono);background:var(--btn);color:var(--btnink)!important;border:3px outset var(--btn);padding:2px 12px;margin:4px;text-decoration:none;text-align:center}
+.prints-link:active{border-style:inset}
+.prints{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:0 0 18px}
+.prints figure{margin:0;padding:8px;background:var(--panel);border:4px dotted var(--edge);outline:3px ridge var(--edge);outline-offset:3px}
+.prints .placeholder{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;margin:0}
+.prints img{display:block;width:100%;height:auto}
+.prints figcaption{font:18px var(--mono);text-align:center;padding-top:6px}
+.back{text-align:center;font:20px var(--mono)}
 .elsewhere{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;margin:0 0 8px}
 .project{display:flex;flex-direction:column}
 .project .placeholder{order:0}.project .bar{order:1}.project .text{order:2}
@@ -240,6 +248,7 @@ main hr{display:none}
 .project.flip .text{grid-column:2;padding:0 22px 0 0}
 .project.flip>.placeholder{grid-column:1;margin:0 0 0 20px}
 .project .claim{max-width:none}
+.prints{grid-template-columns:repeat(3,minmax(0,1fr))}
 .shelf{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}
 .shelf .entries{margin-bottom:0}
 .reading.win{margin-top:0}
